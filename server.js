@@ -31,9 +31,13 @@ app.get("/saved",function(req, res) {
 });
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mongoscraper", {
-  useMongoClient: true
-});
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+    mongoose.connect("mongodb://localhost/mongoscraper", {
+    useMongoClient: true
+  });
+}
 
 app.get("/scrape", function(req, res) {
 	request("https://www.nytimes.com/section/sports", function(error, response, html) {
