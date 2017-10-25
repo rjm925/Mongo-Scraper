@@ -31,7 +31,7 @@ app.get("/saved",function(req, res) {
 });
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/TESTING", {
+mongoose.connect("mongodb://localhost/mongoscraper", {
   useMongoClient: true
 });
 
