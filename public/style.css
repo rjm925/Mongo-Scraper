@@ -1,0 +1,20 @@
+.save, .notes, .delete, .deleteNote {
+	float: right;
+	margin: 0px 5px 0px 5px;
+}
+
+.articleNotes {
+	border: 1px solid;
+	margin: 25px;
+	overflow: auto;
+	padding: 5px;
+}
+
+.modal-content {
+	text-align: center;
+}
+
+textarea {
+	width: 516px;
+	height: 200px;
+}
