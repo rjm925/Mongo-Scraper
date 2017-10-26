@@ -3,7 +3,7 @@ $(document).on("click", "#scrape", function() {
 	$.get("/scrape", function(result) {
 		console.log(result);
 	});
-	setTimeout(function(){ location.reload(); }, 500);
+	setTimeout(function(){ location.reload(); }, 1000);
 });
 
 $(document).on("click", ".save", function() {
@@ -31,7 +31,7 @@ $.getJSON("/articles", function(data) {
     // Display the apropos information on the page
     if (data[i].saved === false) {
     	$(".article-container")
-    .append(`
+    .prepend(`
     <div class ="panel panel-default">
     	<div class="panel-heading">
     		<h3>
