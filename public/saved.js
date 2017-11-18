@@ -1,5 +1,5 @@
 $(document).on("click", ".delete", function() {
-  var thisId = $(this).attr("data-id");
+  let thisId = $(this).attr("data-id");
   console.log(thisId);
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
@@ -18,7 +18,7 @@ $(document).on("click", ".delete", function() {
 });
 
 $(document).on("click", ".notes", function() {
-  var thisId = $(this).attr("data-id");
+  let thisId = $(this).attr("data-id");
   $("#notes").empty();
   $("#myModal").modal('toggle');
   $(".modal-header").html(`<h4>Notes For Article: ${thisId}</h4>`);
@@ -31,7 +31,7 @@ $(document).on("click", ".notes", function() {
     // With that done, add the note information to the page
     .done(function(data) {
       console.log(data[0].note);
-      for(var i = 0; i < data[0].note.length; i++) {
+      for(let i = 0; i < data[0].note.length; i++) {
         $("#notes")
         .append(`
           <div class="articleNotes">
@@ -45,7 +45,7 @@ $(document).on("click", ".notes", function() {
 
 $(document).on("click", "#savenote", function() {
   // Grab the id associated with the article from the submit button
-  var thisId = $(this).attr("data-id");
+  let thisId = $(this).attr("data-id");
 
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
@@ -66,7 +66,7 @@ $(document).on("click", "#savenote", function() {
 });
 
 $(document).on("click", ".deleteNote", function() {
-  var thisId = $(this).attr("data-id");
+  let thisId = $(this).attr("data-id");
 
   $.ajax({
     method: "POST",
@@ -85,9 +85,10 @@ $(document).on("click", ".deleteNote", function() {
 });
 
 $.getJSON("/articles", function(data) {
+  let none = true;
   // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
+  for (let i = 0; i < data.length; i++) {
+    // Display the information on the page
     if (data[i].saved === true) {
         $(".article-container")
     .append(`
@@ -102,6 +103,15 @@ $.getJSON("/articles", function(data) {
         <div class="panel-body">${data[i].summary}</div>
     </div>
         `)
+    none = false;
     }
+  }
+  if (none) {
+    $(".article-container")
+    .append(`
+    <div class ="panel panel-default">
+        <div class="panel-body text-center"><h2>No Saved Articles</h2></div>
+    </div>
+        `)
   }
 });

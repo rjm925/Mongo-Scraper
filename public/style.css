@@ -18,3 +18,20 @@ textarea {
 	width: 516px;
 	height: 200px;
 }
+
+.navbar-brand {
+	margin: 0px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+#scrape {
+	color: white;
+}
+
+.jumbotron {
+	background-color: blue;
+	color: white;
+}

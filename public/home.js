@@ -7,7 +7,7 @@ $(document).on("click", "#scrape", function() {
 });
 
 $(document).on("click", ".save", function() {
-	var thisId = $(this).attr("data-id");
+	let thisId = $(this).attr("data-id");
 	console.log(thisId);
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
@@ -27,7 +27,7 @@ $(document).on("click", ".save", function() {
 
 $.getJSON("/articles", function(data) {
   // For each one
-  for (var i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     if (data[i].saved === false) {
     	$(".article-container")
